@@ -1,0 +1,21 @@
+# Environment variables / secrets
+.env
+.env.*
+!.env.example
+
+# Go build artifacts
+example
+collector
+*.out
+
+# IDE / editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+
+# Logs
+*.log

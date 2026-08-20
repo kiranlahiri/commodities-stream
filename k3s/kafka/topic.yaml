@@ -1,0 +1,9 @@
+apiVersion: kafka.strimzi.io/v1
+kind: KafkaTopic
+metadata:
+  name: wti-aggregates-1s
+  labels:
+    strimzi.io/cluster: market-data-kafka
+spec:
+  partitions: 1
+  replicas: 1
