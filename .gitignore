@@ -5,7 +5,7 @@
 
 # Go build artifacts
 example
-collector
+/collector
 *.out
 
 # IDE / editor files

@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: commodities-collector
+  namespace: market-data
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: commodities-collector
+  template:
+    metadata:
+      labels:
+        app: commodities-collector
+    spec:
+      containers:
+        - name: collector
+          image: ghcr.io/kiranlahiri/commodities-stream-collector:v0.1.0
+          env:
+            - name: MASSIVE_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: massive-api
+                  key: MASSIVE_API_KEY
+            - name: KAFKA_BROKER
+              value: market-data-kafka-kafka-bootstrap.kafka.svc:9092
