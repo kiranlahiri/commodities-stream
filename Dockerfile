@@ -7,7 +7,7 @@ RUN go mod download
 
 COPY . .
 
-RUN CGO_ENABLED=0 GOOS=linux go build -o collector ./example.go
+RUN CGO_ENABLED=0 GOOS=linux go build -o collector ./collector.go
 
 
 FROM gcr.io/distroless/static-debian12
