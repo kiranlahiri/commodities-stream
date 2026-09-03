@@ -1,0 +1,20 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: commodities-collector
+  namespace: monitoring
+  labels:
+    release: monitoring
+spec:
+  selector:
+    matchLabels:
+      app: commodities-collector
+
+  namespaceSelector:
+    matchNames:
+      - market-data
+
+  endpoints:
+    - port: metrics
+      path: /metrics
+      interval: 30s
